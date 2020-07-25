@@ -1,10 +1,15 @@
 import React from 'react';
+import NavBar from './components/navBar/NavBar';
+import AppViews from './components/appViews/AppViews';
 import './App.css';
 
 const App = () => {
 
   return (
-    <h1>Welcome to Deal Insight</h1>
+    <>
+      <NavBar />
+      <AppViews />
+    </>
   )
 }
 
