@@ -55,8 +55,9 @@ const Register = ({...props}) => {
           setPasswordMatch(false)
           setFieldsCompleted(true)
           DatabaseManager.postNewUser(newUserObj)
-            .then(() => {
-              sessionStorage.setItem('credentials', JSON.stringify(user))
+            .then(res => {
+              console.log(res)
+              sessionStorage.setItem('credentials', JSON.stringify(res))
               props.history.push('/dashboard')
             })
         }
