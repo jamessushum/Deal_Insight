@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "firstName": "Jacques",
+      "lastName": "Owen",
+      "email": "jacques.owen@oakcapital.com",
+      "username": "jowen",
+      "password": "7Ebw7wT4",
+      "id": 1
+    },
+    {
+      "firstName": "Yazmin",
+      "lastName": "Rios",
+      "email": "yazmin.rios@oakcapital.com",
+      "username": "yazrio",
+      "password": "arXsr76g",
+      "id": 2
+    }
+  ]
+}
