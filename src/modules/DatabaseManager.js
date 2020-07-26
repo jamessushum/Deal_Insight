@@ -24,5 +24,11 @@ export default {
     const response = await fetch(`${remoteURL}/users?email=${email}`)
     const result = await response.json()
     return result
+  },
+  // Method to get user from database whose password matches password parameter
+  async findUserByPassword(password) {
+    const response = await fetch(`${remoteURL}/users?password=${password}`)
+    const result = await response.json()
+    return result
   }
 }

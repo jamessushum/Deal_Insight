@@ -56,7 +56,6 @@ const Register = ({...props}) => {
           setFieldsCompleted(true)
           DatabaseManager.postNewUser(newUserObj)
             .then(res => {
-              console.log(res)
               sessionStorage.setItem('credentials', JSON.stringify(res))
               props.history.push('/dashboard')
             })
