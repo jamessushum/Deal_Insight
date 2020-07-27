@@ -1,0 +1,17 @@
+.dealCard {
+  width: 300px;
+}
+
+.dealCard__title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.dealCard__links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dealCard__bold {
+  font-weight: bold;
+}

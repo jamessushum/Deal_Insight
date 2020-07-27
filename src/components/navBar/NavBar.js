@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import './NavBar.css'
 
 const NavBar = ({hasUser, clearUser, ...props}) => {
   const handleLogout = () => {
@@ -17,13 +18,13 @@ const NavBar = ({hasUser, clearUser, ...props}) => {
       <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
         <ul className="navbar-nav">
           {/* Dashboard */}
-          {hasUser ? <li className="nav-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li> : null}
+          {hasUser ? <li className="nav-item mainNav"><Link className="nav-link" to="/dashboard">Dashboard</Link></li> : null}
           {/* Deals */}
-          {hasUser ? <li className="nav-item"><Link className="nav-link" to="/deals">Deals</Link></li> : null}
+          {hasUser ? <li className="nav-item mainNav"><Link className="nav-link" to="/deals">Deals</Link></li> : null}
           {/* News */}
-          {hasUser ? <li className="nav-item"><Link className="nav-link" to="/news">News</Link></li> : null}
+          {hasUser ? <li className="nav-item mainNav"><Link className="nav-link" to="/news">News</Link></li> : null}
           {/* Analytics */}
-          {hasUser ? <li className="nav-item"><Link className="nav-link" to="/analytics">Analytics</Link></li> : null}
+          {hasUser ? <li className="nav-item mainNav"><Link className="nav-link" to="/analytics">Analytics</Link></li> : null}
           {/* Register */}
           {hasUser ? null : <li className="nav-item"><Link className="nav-link" to="/register"><button className="btn btn-outline-secondary">Register</button></Link></li>}
           {/* Login & Logout */}
