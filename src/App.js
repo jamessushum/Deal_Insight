@@ -4,6 +4,7 @@ import AppViews from './components/appViews/AppViews';
 import './App.css';
 
 const App = () => {
+  // Method returns true or false value depending if user credentials are in session storage
   const isAuthenticated = () => sessionStorage.getItem('credentials') !== null
 
   const [hasUser, setHasUser] = useState(isAuthenticated())

@@ -34,4 +34,5 @@ const NavBar = ({hasUser, clearUser, ...props}) => {
   )
 }
 
+// Using withRouter to access ...props on handleLogout method
 export default withRouter(NavBar);
