@@ -27,7 +27,7 @@ const NavBar = ({hasUser, clearUser, ...props}) => {
           {/* Register */}
           {hasUser ? null : <li className="nav-item"><Link className="nav-link" to="/register"><button className="btn btn-outline-secondary">Register</button></Link></li>}
           {/* Login & Logout */}
-          {hasUser ? <li className="nav-item"><button className="btn btn-secondary nav-link" onClick={handleLogout}>Logout</button></li> : <li className="nav-item"><Link className="nav-link" to="/login"><button className="btn btn-secondary">Login</button></Link></li>}
+          {hasUser ? <li className="nav-item"><button className="btn btn-secondary" onClick={handleLogout}>Logout</button></li> : <li className="nav-item"><Link className="nav-link" to="/login"><button className="btn btn-secondary">Login</button></Link></li>}
         </ul>
       </div>
     </nav>

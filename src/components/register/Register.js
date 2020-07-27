@@ -3,7 +3,7 @@ import DatabaseManager from '../../modules/DatabaseManager';
 import { Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 import './Register.css'
 
-const Register = ({...props}) => {
+const Register = ({setUserAuth, ...props}) => {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -56,7 +56,7 @@ const Register = ({...props}) => {
           setFieldsCompleted(true)
           DatabaseManager.postNewUser(newUserObj)
             .then(res => {
-              sessionStorage.setItem('credentials', JSON.stringify(res))
+              setUserAuth(res)
               props.history.push('/dashboard')
             })
         }

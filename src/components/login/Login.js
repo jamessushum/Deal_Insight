@@ -3,7 +3,7 @@ import DatabaseManager from '../../modules/DatabaseManager';
 import { Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 import './Login.css';
 
-const Login = ({...props}) => {
+const Login = ({setUserAuth, ...props}) => {
   const [credentials, setCredentials] = useState({
     username: "",
     password: ""
@@ -37,7 +37,7 @@ const Login = ({...props}) => {
           setFieldsCompleted(true)
           setUsernameExist(false)
           setValidPassword(false)
-          sessionStorage.setItem('credentials', JSON.stringify(resUser))
+          setUserAuth(resUser)
           props.history.push('/dashboard')
         }
       }))
