@@ -15,6 +15,154 @@
       "username": "yazrio",
       "password": "arXsr76g",
       "id": 2
+    },
+    {
+      "firstName": "Justin",
+      "lastName": "Keller",
+      "email": "justin.keller@oakcapital.com",
+      "username": "jkeller",
+      "password": "WgsH2Y5u",
+      "id": 3
+    }
+  ],
+  "deals": [
+    {
+      "dealName": "Candlewood Suites",
+      "address": "50 Stephen S Green Dr, Savannah, GA 31408",
+      "propertyId": 2,
+      "classId": 1,
+      "stageId": 1,
+      "statusId": 1,
+      "squareFoot": 52518,
+      "contact": "Joce Messinger",
+      "initialPrice": 2300000,
+      "initialCapRate": "",
+      "bidPrice": "",
+      "closingDate": "08/26/2020",
+      "notes": "Leasehold interest in the 91-key Candlewood Suites by IHG located at the Savannah/Hilton Head International Airport. Built in 2008 and is being offered well below replacement costs with the ability to retain the current franchise through a new franchise agreement with IHG. The hotel is being offered unencumbered of debt and management and is ideally situated off Exit 104 of Interstate-95 with great visibility and access to all the major demand generators in the market. The Savannah/Hilton Head International was recently recognized as the No. 2 Airport for leisure travelers in the U.S according to Conde Nast Traveler. This hotel has very stable top line revenues exceeding $2,100,000 during the past 4 years with an average NOI of nearly $740,000 during the same time period. The Candlewood Suites Savannah Airport Hotel offers a convenient location near many attractions and businesses in Savannah. Subject property is located directly off I-95 on Exit 104 at the Savannah Hilton Head International Airport (SAV) which offers a complimentary shuttle service. Guests at the hotel can easily travel to the nearby Tanger Outlets and all local attractions in the Savannah metro market. This airport hotel is just 12 miles from Savannah's Historic District and Tybee Island which offers access to the beaches and Atlantic ocean. Local corporations include IKEA, Target Distribution Center, Home Depot, Dollar Tree Distribution Center, Gulfstream, SheltAir, Flight Safety, and Pier 1 Distribution Center. Complimentary amenities include an airport/local area shuttle, self-laundry facilities, fitness center, an outdoor pool and high-speed Internet access. Guests can buy snacks and meals at the on-site convenience store, the Candlewood Cupboard, which guests can prepare in their suite's fully equipped kitchen.",
+      "images": "",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "dealName": "Shops at Barcelona Towers",
+      "address": "3300 West 6th St, Los Angeles, CA 90020",
+      "propertyId": 4,
+      "classId": 2,
+      "stageId": 5,
+      "statusId": 2,
+      "sqaureFoot": 9063,
+      "contact": "Charley Simpson",
+      "initialPrice": 3000000,
+      "initialCapRate": 0.043,
+      "bidPrice": 3000000,
+      "closingDate": "07/01/2020",
+      "notes": "9,063 SF ground floor retail portion of a six-story 76-unit condominium property located one block north of Wilshire Boulevard on the southwest side of the hard-signalized corner of West 6th Street and South Berendo Street in Los Angeles, California.This mixed-use project was developed in 2005 and is located in the heart of Koreatown, the most densely populated community in all of Los Angeles County with over 139,000 people living and 50,000 people working within a one-mile radius of the subject property. Strategically located within a short walking distance to the Wilshire/Vermont subway station, The Shops @ Barcelona Towers feature six units with excellent visibility facing West 6th Street and ground floor valet parking available for customers during business hours. The Shops at Barcelona Towers is currently 66.7% leased to three highly rated restaurants.",
+      "images": "",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "dealName": "Midway Road Office",
+      "address": "13465 Midway Rd, Dallas, TX 75244",
+      "propertyId": 5,
+      "classId": 2,
+      "stageId": 5,
+      "statusId": 3,
+      "sqaureFoot": 65435,
+      "contact": "Mark Meyer",
+      "initialPrice": 1900000,
+      "initialCapRate": "",
+      "bidPrice": 1900000,
+      "closingDate": "06/11/2020",
+      "notes": "The Midway Road Office Building is a ±63,592 RSF, Class B office building located at 13465 Midway Road in the West LBJ Freeway submarket within Dallas County, TX. This North Dallas Property is a four (4) story office building just north of LBJ and Midway Road where redevelopment continues to take place. Although physically located in Farmers Branch, a Dallas address is used for marketing purposes and mailing address. Strategically positioned in the Dallas area, the Property provides an opportunity to acquire a ±65% occupied commercial asset with significant value add opportunities. Built in 1983 and extensively gutted and refurbished from 2006 – 2020 with over $180k in recent CapEx. Each of the four (4) floors have been taken back to shell condition and renovated with new finishes and multi-tenant corridors with the exception of the first floor restrooms. Floors 2-4 restrooms have been taken back to shell condition and updated to a class A standard. Other renovations include a new first floor lobby with comfortable finishes which includes 2 TV screens for tenants to relax, a digital energy management system, surveillance cameras, card access system and a backup generator. Exterior renovations include sealing the outside brick veneer to the aluminum curtain wall, replacement of rooftop HVAC unit compressors and restriping the surface parking lot. The Property is currently ±65.2% occupied by a mix of professional office users with staggered expirations and offers investors stable income with value add via contractual increases and renewal options. This office building opportunity offers the knowledgeable investor the opportunity to increase rents and extend leases making it an ideal value-add investment. There is significant value enhancement via strategic long term leasing strategies at market rates (estimated at $20 in the submarket according to CoStar data). Stabilizing the Property will allow the new owner to enjoy an increased cash-flow stream and significant capital appreciation upon future disposition.",
+      "images": "",
+      "userId": 1,
+      "id": 3
+    }
+  ],
+  "properties": [
+    {
+      "type": "Multi-family",
+      "id": 1
+    },
+    {
+      "type": "Hospitality",
+      "id": 2
+    },
+    {
+      "type": "Industrial",
+      "id": 3
+    },
+    {
+      "type": "Retail",
+      "id": 4
+    },
+    {
+      "type": "Office",
+      "id": 5
+    },
+    {
+      "type": "Mixed-use",
+      "id": 6
+    },
+    {
+      "type": "Land",
+      "id": 7
+    },
+    {
+      "type": "Special Purpose",
+      "id": 8
+    }
+  ],
+  "classes": [
+    {
+      "class": "A",
+      "id": 1
+    },
+    {
+      "class": "B",
+      "id": 2
+    },
+    {
+      "class": "C",
+      "id": 3
+    }
+  ],
+  "stages": [
+    {
+      "stage": "Prospecting",
+      "id": 1
+    },
+    {
+      "stage": "Underwriting",
+      "id": 2
+    },
+    {
+      "stage": "Letter of Intent",
+      "id": 3
+    },
+    {
+      "stage": "Due Diligence",
+      "id": 4
+    },
+    {
+      "stage": "Bid",
+      "id": 5
+    }
+  ],
+  "statuses": [
+    {
+      "status": "Active",
+      "id": 1
+    },
+    {
+      "status": "Closed",
+      "id": 2
+    },
+    {
+      "status": "Lost",
+      "id": 3
     }
   ]
 }
