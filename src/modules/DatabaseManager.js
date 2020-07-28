@@ -48,5 +48,35 @@ export default {
     const response = await fetch(`${remoteURL}/deals?_expand=user&_expand=property&_expand=class&_expand=stage&_expand=status&statusId=3`)
     const result = await response.json()
     return result
+  },
+  // Method to get all property types from database
+  async getAllPropertyTypes() {
+    const response = await fetch(`${remoteURL}/properties`)
+    const result = await response.json()
+    return result
+  },
+  // Method to get all property classes from database
+  async getAllPropertyClasses() {
+    const response = await fetch(`${remoteURL}/classes`)
+    const result = await response.json()
+    return result
+  },
+  // Method to get all process stages from database
+  async getAllStages() {
+    const response = await fetch(`${remoteURL}/stages`)
+    const result = await response.json()
+    return result
+  },
+  // Method to get all deal statuses from database
+  async getAllStatuses() {
+    const response = await fetch(`${remoteURL}/statuses`)
+    const result = await response.json()
+    return result
+  },
+  // Method to get all users from database
+  async getAllUsers() {
+    const response = await fetch(`${remoteURL}/users`)
+    const result = await response.json()
+    return result
   }
 }

@@ -1,0 +1,89 @@
+.addDeal__title {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.addDeal__container {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  display: flex;
+  margin: 2em 3em 3em 3em;
+}
+
+.addDeal__formLeft {
+  flex: 1;
+  padding: 3em;
+}
+
+.addDeal__formRight {
+  flex: 1;
+  padding: 3em;
+}
+
+.addDeal__submitBtn {
+  text-align: right;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+#dealName {
+  width: 450px;
+}
+
+#address {
+  width: 450px;
+}
+
+#propertyId {
+  width: 225px;
+}
+
+#squareFeet {
+  width: 150px;
+}
+
+#classId {
+  width: 225px;
+}
+
+#stageId {
+  width: 225px;
+}
+
+#statusId {
+  width: 225px;
+}
+
+#images {
+  width: 225px;
+}
+
+#userId {
+  width: 225px;
+}
+
+#closingDate {
+  width: 225px;
+}
+
+#contact {
+  width: 150px;
+}
+
+#initialPrice {
+  width: 150px;
+}
+
+#initialCapRate {
+  width: 150px;
+}
+
+#bidPrice {
+  width: 150px;
+}
+
+#notes {
+  height: 175px;
+}
