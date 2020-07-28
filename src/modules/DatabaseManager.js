@@ -30,5 +30,23 @@ export default {
     const response = await fetch(`${remoteURL}/users?password=${password}`)
     const result = await response.json()
     return result
+  },
+  // Method to get all "Active" status deals from database expanding user, property, class, stage and status data
+  async getAllActiveDeals() {
+    const response = await fetch(`${remoteURL}/deals?_expand=user&_expand=property&_expand=class&_expand=stage&_expand=status&statusId=1`)
+    const result = await response.json()
+    return result
+  },
+  // Method to get all "Closed" status deals from database expanding user, property, class, stage and status data
+  async getAllClosedDeals() {
+    const response = await fetch(`${remoteURL}/deals?_expand=user&_expand=property&_expand=class&_expand=stage&_expand=status&statusId=2`)
+    const result = await response.json()
+    return result
+  },
+  // Method to get all "Lost" status deals from database expanding user, property, class, stage and status data
+  async getAllLostDeals() {
+    const response = await fetch(`${remoteURL}/deals?_expand=user&_expand=property&_expand=class&_expand=stage&_expand=status&statusId=3`)
+    const result = await response.json()
+    return result
   }
 }

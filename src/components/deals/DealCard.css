@@ -1,5 +1,7 @@
 .dealCard {
   width: 300px;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .dealCard__title {

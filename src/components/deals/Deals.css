@@ -19,3 +19,18 @@
   margin-top: 2em;
   margin-bottom: 2em;
 }
+
+.activeDeals__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.closedDeals__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lostDeals__container {
+  display: flex;
+  flex-wrap: wrap;
+}

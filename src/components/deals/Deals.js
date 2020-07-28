@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import DealCard from './DealCard';
+import DatabaseManager from '../../modules/DatabaseManager';
 import './Deals.css';
 
 const Deals = () => {
+  const [activeDeals, setActiveDeals] = useState([])
+  const [closedDeals, setClosedDeals] = useState([])
+  const [lostDeals, setLostDeals] = useState([])
+
+  const getActiveDeals = async () => {
+    const res = await DatabaseManager.getAllActiveDeals()
+    const sortedByDate = res.sort((a, b) => new Date(a.date) - new Date(b.date))
+    return setActiveDeals(sortedByDate);
+  }
+
+  const getClosedDeals = async () => {
+    const res = await DatabaseManager.getAllClosedDeals()
+    const sortedByDate = res.sort((a, b) => new Date(a.date) - new Date(b.date))
+    return setClosedDeals(sortedByDate)
+  }
+
+  const getLostDeals = async () => {
+    const res = await DatabaseManager.getAllLostDeals()
+    const sortedByDate = res.sort((a, b) => new Date(a.date) - new Date(b.date))
+    return setLostDeals(sortedByDate)
+  }
+
+  useEffect(() => {
+    getActiveDeals()
+    getClosedDeals()
+    getLostDeals()
+  }, [])
 
   return (
     <>
@@ -28,15 +56,15 @@ const Deals = () => {
       </nav>
       <h4 className="activeDeals__title">Active Deals</h4>
       <div className="activeDeals__container">
-        <DealCard />
+        {activeDeals.map(deal => <DealCard key={deal.id} deal={deal} />)}
       </div>
       <h4 className="closedDeals__title">Closed Deals</h4>
       <div className="closedDeals__container">
-        <DealCard />
+        {closedDeals.map(deal => <DealCard key={deal.id} deal={deal} />)}
       </div>
       <h4 className="lostDeals__title">Lost Deals</h4>
       <div className="lostDeals__container">
-        <DealCard />
+        {lostDeals.map(deal => <DealCard key={deal.id} deal={deal} />)}
       </div>
     </>
   )
