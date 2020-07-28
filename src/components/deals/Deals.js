@@ -10,17 +10,20 @@ const Deals = () => {
 
   const getActiveDeals = async () => {
     const res = await DatabaseManager.getAllActiveDeals()
-    return setActiveDeals(res);
+    const sortedByDate = res.sort((a, b) => new Date(a.date) - new Date(b.date))
+    return setActiveDeals(sortedByDate);
   }
 
   const getClosedDeals = async () => {
     const res = await DatabaseManager.getAllClosedDeals()
-    return setClosedDeals(res)
+    const sortedByDate = res.sort((a, b) => new Date(a.date) - new Date(b.date))
+    return setClosedDeals(sortedByDate)
   }
 
   const getLostDeals = async () => {
     const res = await DatabaseManager.getAllLostDeals()
-    return setLostDeals(res)
+    const sortedByDate = res.sort((a, b) => new Date(a.date) - new Date(b.date))
+    return setLostDeals(sortedByDate)
   }
 
   useEffect(() => {
