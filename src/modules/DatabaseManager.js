@@ -78,5 +78,17 @@ export default {
     const response = await fetch(`${remoteURL}/users`)
     const result = await response.json()
     return result
+  },
+  // Method to post new deal to database
+  async postNewDeal(newDeal) {
+    const response = await fetch(`${remoteURL}/deals`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newDeal)
+    })
+    const result = await response.json()
+    return result
   }
 }

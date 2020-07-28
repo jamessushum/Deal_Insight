@@ -24,7 +24,7 @@ const AppViews = ({hasUser, setUserAuth}) => {
       {/* Deals */}
       <Route exact path="/deals" render={props => hasUser ? <Deals {...props} /> : <Redirect to="/login" />} />
       {/* Add New Deal */}
-      <Route exact path="/deals/new" render={props => hasUser ? <DealForm /> : <Redirect to="/login" />} />
+      <Route exact path="/deals/new" render={props => hasUser ? <DealForm {...props} /> : <Redirect to="/login" />} />
       {/* News */}
       <Route exact path="/news" render={props => hasUser ? <News /> : <Redirect to="/login" />} />
       {/* Analytics */}

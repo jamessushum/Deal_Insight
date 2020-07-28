@@ -4,33 +4,37 @@
 
 .activeDeals__title {
   text-align: center;
-  margin-top: 1em;
-  margin-bottom: 2em;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }
 
 .closedDeals__title {
   text-align: center;
   margin-top: 2em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .lostDeals__title {
   text-align: center;
   margin-top: 2em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .activeDeals__container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .closedDeals__container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .lostDeals__container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 3em;
 }
