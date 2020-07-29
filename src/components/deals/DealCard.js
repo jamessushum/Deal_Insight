@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, CardImg, CardText, CardBody, CardTitle, Button} from 'reactstrap';
 import './DealCard.css';
 
-const DealCard = ({deal, ...props}) => {
+const DealCard = ({deal, dealToBeDeleted, ...props}) => {
 
   return (
     <div>
@@ -16,7 +16,7 @@ const DealCard = ({deal, ...props}) => {
           <CardText><span className="dealCard__bold">Assigned:</span> {deal.user.firstName} {deal.user.lastName}</CardText>
           <div className="dealCard__links">
             <Button color="info" size="sm" onClick={() => props.history.push(`/deals/${deal.id}/details`)}>Details</Button>
-            <Button color="warning" size="sm">Delete</Button>
+            <Button color="warning" size="sm" onClick={() => dealToBeDeleted(deal)}>Delete</Button>
           </div>
         </CardBody>
       </Card>
