@@ -90,5 +90,23 @@ export default {
     })
     const result = await response.json()
     return result
+  },
+  // Method to get single deal per id in parameter from database
+  async getSingleDeal(id) {
+    const response = await fetch(`${remoteURL}/deals/${id}?_expand=user&_expand=property&_expand=class&_expand=stage&_expand=status`)
+    const result = await response.json()
+    return result
+  },
+  // Method to update existing deal in database per object in parameter
+  async updateDeal(editedDeal) {
+    const response = await fetch(`${remoteURL}/deals/${editedDeal.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedDeal)
+    })
+    const result = await response.json()
+    return result
   }
 }

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import DatabaseManager from '../../modules/DatabaseManager';
 import { Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
-import './DealForm.css';
+import './DealDetailsForm.css';
 
-const DealForm = ({...props}) => {
+const DealDetailsForm = ({...props}) => {
   const [propertyTypes, setPropertyTypes] = useState([])
   const [propertyClass, setPropertyClass] = useState([])
   const [processStage, setProcessStage] = useState([])
   const [dealStatus, setDealStatus] = useState([])
   const [users, setUsers] = useState([])
   const [formFeedback, setFormFeedback] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [deal, setDeal] = useState({
     dealName: "",
     address: "",
@@ -26,7 +26,8 @@ const DealForm = ({...props}) => {
     closingDate: "",
     notes: "",
     images: "",
-    userId: ""
+    userId: "",
+    id: ""
   })
 
   const getPropertyTypes = async () => {
@@ -54,16 +55,21 @@ const DealForm = ({...props}) => {
     setUsers(res)
   }
 
+  const getSelectedDeal = async () => {
+    const res = await DatabaseManager.getSingleDeal(props.match.params.dealId)
+    setDeal(res)
+  }
+
   const handleFieldChange = (e) => {
     const stateToChange = {...deal}
     stateToChange[e.target.id] = e.target.value
     setDeal(stateToChange)
   }
 
-  const handleSubmit = (e) => {
+  const handleSave = (e) => {
     e.preventDefault()
 
-    const newDeal = {
+    const editedDeal = {
       dealName: deal.dealName,
       address: deal.address,
       propertyId: parseInt(deal.propertyId),
@@ -78,14 +84,15 @@ const DealForm = ({...props}) => {
       closingDate: new Date(deal.closingDate).toISOString().split("T")[0],
       notes: deal.notes,
       images: "",
-      userId: parseInt(deal.userId)
+      userId: parseInt(deal.userId),
+      id: props.match.params.dealId
     }
 
     if (deal.dealName === "" || deal.propertyId === "" || deal.classId === "" || deal.stageId === "" || deal.statusId === "" || deal.userId === "") {
       setFormFeedback(true)
     } else {
       setIsLoading(true)
-      DatabaseManager.postNewDeal(newDeal)
+      DatabaseManager.updateDeal(editedDeal)
         .then(() => props.history.push('/deals'))
     }
   }
@@ -96,12 +103,13 @@ const DealForm = ({...props}) => {
     getProcessStages()
     getDealStatuses()
     getUsers()
+    getSelectedDeal().then(() => setIsLoading(false))
   }, [])
-
+  
   return (
     <>
       <div className="addDeal__title">
-        <h4>Add New Deal</h4>
+        <h4>Deal Details</h4>
       </div>
       <div className="addDeal__container">
         <div className="addDeal__formLeft">
@@ -109,18 +117,18 @@ const DealForm = ({...props}) => {
             {/* Deal Name */}
             <FormGroup>
               <Label for="dealName" className="bold">Deal Name</Label>
-              <Input type="text" id="dealName" onChange={handleFieldChange} invalid={formFeedback} />
+              <Input type="text" id="dealName" onChange={handleFieldChange} invalid={formFeedback} value={deal.dealName} />
               <FormFeedback>Required before proceeding</FormFeedback>
             </FormGroup>
             {/* Address */}
             <FormGroup>
               <Label for="address" className="bold">Address</Label>
-              <Input type="text" id="address" onChange={handleFieldChange} />
+              <Input type="text" id="address" onChange={handleFieldChange} value={deal.address} />
             </FormGroup>
             {/* Property Type */}
             <FormGroup>
               <Label for="propertyId" className="bold">Property Type</Label>
-              <Input type="select" id="propertyId" defaultValue="" onChange={handleFieldChange} invalid={formFeedback}>
+              <Input type="select" id="propertyId" onChange={handleFieldChange} invalid={formFeedback} value={deal.propertyId}>
                 <option value="" disabled>Select Property Type</option>
                 {propertyTypes.map(property => <option key={property.id} value={property.id}>{property.type}</option>)}
               </Input>
@@ -129,12 +137,12 @@ const DealForm = ({...props}) => {
             {/* Rentable SqFt */}
             <FormGroup>
               <Label for="squareFeet" className="bold">Rentable SqFt.</Label>
-              <Input type="text" id="squareFeet" onChange={handleFieldChange} />
+              <Input type="text" id="squareFeet" onChange={handleFieldChange} value={deal.squareFeet} />
             </FormGroup>
             {/* Property Class */}
             <FormGroup>
               <Label for="classId" className="bold">Property Class</Label>
-              <Input type="select" id="classId" defaultValue="" onChange={handleFieldChange} invalid={formFeedback}>
+              <Input type="select" id="classId" onChange={handleFieldChange} invalid={formFeedback} value={deal.classId}>
                 <option value="" disabled>Select Property Class</option>
                 {propertyClass.map(propClass => <option key={propClass.id} value={propClass.id}>{propClass.class}</option>)}
               </Input>
@@ -143,7 +151,7 @@ const DealForm = ({...props}) => {
             {/* Stage */}
             <FormGroup>
               <Label for="stageId" className="bold">Stage</Label>
-              <Input type="select" id="stageId" defaultValue="" onChange={handleFieldChange} invalid={formFeedback}>
+              <Input type="select" id="stageId" onChange={handleFieldChange} invalid={formFeedback} value={deal.stageId}>
                 <option value="" disabled>Select Stage</option>
                 {processStage.map(stage => <option key={stage.id} value={stage.id}>{stage.stage}</option>)}
               </Input>
@@ -152,7 +160,7 @@ const DealForm = ({...props}) => {
             {/* Status */}
             <FormGroup>
               <Label for="statusId" className="bold">Deal Status</Label>
-              <Input type="select" id="statusId" defaultValue="" onChange={handleFieldChange} invalid={formFeedback}>
+              <Input type="select" id="statusId" onChange={handleFieldChange} invalid={formFeedback} value={deal.statusId}>
                 <option value="" disabled>Select Status</option>
                 {dealStatus.map(status => <option key={status.id} value={status.id}>{status.status}</option>)}
               </Input>
@@ -170,7 +178,7 @@ const DealForm = ({...props}) => {
             {/* Assign Team Member */}
             <FormGroup>
               <Label for="userId" className="bold">Assign Team Member</Label>
-              <Input type="select" id="userId" defaultValue="" onChange={handleFieldChange} invalid={formFeedback}>
+              <Input type="select" id="userId" onChange={handleFieldChange} invalid={formFeedback} value={deal.userId}>
                 <option value="" disabled>Select Name</option>
                 {users.map(user => <option key={user.id} value={user.id}>{user.firstName} {user.lastName}</option>)}
               </Input>
@@ -179,35 +187,35 @@ const DealForm = ({...props}) => {
             {/* Closing Date */}
             <FormGroup>
               <Label for="closingDate" className="bold">Closing Date</Label>
-              <Input type="date" id="closingDate" onChange={handleFieldChange} />
+              <Input type="date" id="closingDate" onChange={handleFieldChange} value={deal.closingDate} />
             </FormGroup>
             {/* Point of Contact */}
             <FormGroup>
               <Label for="contact" className="bold">Point of Contact</Label>
-              <Input type="text" id="contact" onChange={handleFieldChange} />
+              <Input type="text" id="contact" onChange={handleFieldChange} value={deal.contact} />
             </FormGroup>
             {/* Initial Price */}
             <FormGroup>
               <Label for="initialPrice" className="bold">Initial Price</Label>
-              <Input type="text" id="initialPrice" onChange={handleFieldChange} />
+              <Input type="text" id="initialPrice" onChange={handleFieldChange} value={deal.initialPrice} />
             </FormGroup>
             {/* Initial Cap Rate */}
             <FormGroup>
               <Label for="initialCapRate" className="bold">Initial Cap Rate</Label>
-              <Input type="text" id="initialCapRate" onChange={handleFieldChange} />
+              <Input type="text" id="initialCapRate" onChange={handleFieldChange} value={deal.initialCapRate} />
             </FormGroup>
             {/* Bid Price */}
             <FormGroup>
               <Label for="bidPrice" className="bold">Bid Price</Label>
-              <Input type="text" id="bidPrice" onChange={handleFieldChange} />
+              <Input type="text" id="bidPrice" onChange={handleFieldChange} value={deal.bidPrice} />
             </FormGroup>
             {/* Notes */}
             <FormGroup>
               <Label for="notes" className="bold">Notes</Label>
-              <Input type="textarea" id="notes" onChange={handleFieldChange} />
+              <Input type="textarea" id="notes" onChange={handleFieldChange} value={deal.notes} />
             </FormGroup>
             <div className="addDeal__submitBtn">
-              <Button disabled={isLoading} onClick={handleSubmit}>Add Deal</Button>
+              <Button disabled={isLoading} onClick={handleSave}>Save Changes</Button>
             </div>
           </Form>
         </div>
@@ -216,4 +224,4 @@ const DealForm = ({...props}) => {
   )
 }
 
-export default DealForm;
+export default DealDetailsForm;

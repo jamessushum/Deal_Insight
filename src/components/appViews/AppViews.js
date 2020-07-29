@@ -8,6 +8,7 @@ import Deals from '../deals/Deals';
 import News from '../news/News';
 import Analytics from '../analytics/Analytics';
 import DealForm from '../deals/DealForm';
+import DealDetailsForm from '../deals/DealDetailsForm';
 
 const AppViews = ({hasUser, setUserAuth}) => {
 
@@ -25,6 +26,8 @@ const AppViews = ({hasUser, setUserAuth}) => {
       <Route exact path="/deals" render={props => hasUser ? <Deals {...props} /> : <Redirect to="/login" />} />
       {/* Add New Deal */}
       <Route exact path="/deals/new" render={props => hasUser ? <DealForm {...props} /> : <Redirect to="/login" />} />
+      {/* Deal Details & Edit */}
+      <Route exact path="/deals/:dealId(\d+)/details" render={props => hasUser ? <DealDetailsForm {...props} /> : <Redirect to="/login" />} />
       {/* News */}
       <Route exact path="/news" render={props => hasUser ? <News /> : <Redirect to="/login" />} />
       {/* Analytics */}

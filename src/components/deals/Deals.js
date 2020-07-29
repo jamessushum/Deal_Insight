@@ -56,15 +56,15 @@ const Deals = ({...props}) => {
       </nav>
       <h4 className="activeDeals__title">Active Deals</h4>
       <div className="activeDeals__container">
-        {activeDeals.map(deal => <DealCard key={deal.id} deal={deal} />)}
+        {activeDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} />)}
       </div>
       <h4 className="closedDeals__title">Closed Deals</h4>
       <div className="closedDeals__container">
-        {closedDeals.map(deal => <DealCard key={deal.id} deal={deal} />)}
+        {closedDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} />)}
       </div>
       <h4 className="lostDeals__title">Lost Deals</h4>
       <div className="lostDeals__container">
-        {lostDeals.map(deal => <DealCard key={deal.id} deal={deal} />)}
+        {lostDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} />)}
       </div>
     </>
   )
