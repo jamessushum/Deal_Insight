@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import DealCard from './DealCard';
 import DatabaseManager from '../../modules/DatabaseManager';
+import DealDeleteModal from './DealDeleteModal';
 import './Deals.css';
 
 const Deals = ({...props}) => {
   const [activeDeals, setActiveDeals] = useState([])
   const [closedDeals, setClosedDeals] = useState([])
   const [lostDeals, setLostDeals] = useState([])
+  const [modal, setModal] = useState(false)
+  const [dealToDelete, setDealToDelete] = useState({id: "", dealName: ""})
 
   const getActiveDeals = async () => {
     const res = await DatabaseManager.getAllActiveDeals()
@@ -26,6 +29,13 @@ const Deals = ({...props}) => {
     return setLostDeals(sortedByDate)
   }
 
+  const toggle = () => setModal(!modal)
+
+  const dealToBeDeleted = (deal) => {
+    setDealToDelete({id: deal.id, dealName: deal.dealName})
+    toggle()
+  }
+
   useEffect(() => {
     getActiveDeals()
     getClosedDeals()
@@ -34,6 +44,7 @@ const Deals = ({...props}) => {
 
   return (
     <>
+      <DealDeleteModal dealToDelete={dealToDelete} modal={modal} toggle={toggle} getActiveDeals={getActiveDeals} getClosedDeals={getClosedDeals} getLostDeals={getLostDeals} />
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav">
@@ -56,15 +67,15 @@ const Deals = ({...props}) => {
       </nav>
       <h4 className="activeDeals__title">Active Deals</h4>
       <div className="activeDeals__container">
-        {activeDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} />)}
+        {activeDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
       </div>
       <h4 className="closedDeals__title">Closed Deals</h4>
       <div className="closedDeals__container">
-        {closedDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} />)}
+        {closedDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
       </div>
       <h4 className="lostDeals__title">Lost Deals</h4>
       <div className="lostDeals__container">
-        {lostDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} />)}
+        {lostDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
       </div>
     </>
   )

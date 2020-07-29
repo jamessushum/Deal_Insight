@@ -108,5 +108,13 @@ export default {
     })
     const result = await response.json()
     return result
+  },
+  // Method to delete existing deal in database per id in parameter
+  async deleteDeal(id) {
+    const response = await fetch(`${remoteURL}/deals/${id}`, {
+      method: "DELETE"
+    })
+    const result = await response.json()
+    return result
   }
 }
