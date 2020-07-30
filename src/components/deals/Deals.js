@@ -14,11 +14,13 @@ const Deals = ({...props}) => {
   const [filteredActiveDeals, setFilteredActiveDeals] = useState([])
   const [filteredClosedDeals, setFilteredClosedDeals] = useState([])
   const [filteredLostDeals, setFilteredLostDeals] = useState([])
+  const [users, setUsers] = useState([])
+  const [dropdownValue, setDropdownValue] = useState('')
 
   const getActiveDeals = async () => {
     const res = await DatabaseManager.getAllActiveDeals()
     const sortedByDate = res.sort((a, b) => new Date(a.closingDate) - new Date(b.closingDate))
-    return setActiveDeals(sortedByDate);
+    return setActiveDeals(sortedByDate)
   }
 
   const getClosedDeals = async () => {
@@ -40,14 +42,24 @@ const Deals = ({...props}) => {
     toggle()
   }
 
-  const handleFieldChange = (e) => {
+  const getUsers = async () => {
+    const res = await DatabaseManager.getAllUsers()
+    setUsers(res)
+  }
+
+  const handleSearchFieldChange = (e) => {
     setSearchTerm(e.target.value)
+  }
+
+  const handleDropdownFieldChange = (e) => {
+    setDropdownValue(e.target.value)
   }
 
   useEffect(() => {
     getActiveDeals()
     getClosedDeals()
     getLostDeals()
+    getUsers()
   }, [])
 
   useEffect(() => {
@@ -68,6 +80,24 @@ const Deals = ({...props}) => {
     )
   }, [searchTerm, activeDeals, closedDeals, lostDeals])
 
+  useEffect(() => {
+    setFilteredActiveDeals(
+      activeDeals.filter(deal => {
+        return deal.userId === parseInt(dropdownValue)
+      })
+    )
+    setFilteredClosedDeals(
+      closedDeals.filter(deal => {
+        return deal.userId === parseInt(dropdownValue)
+      })
+    )
+    setFilteredLostDeals(
+      lostDeals.filter(deal => {
+        return deal.userId === parseInt(dropdownValue)
+      })
+    )
+  }, [dropdownValue])
+
   return (
     <>
       <DealDeleteModal dealToDelete={dealToDelete} modal={modal} toggle={toggle} getActiveDeals={getActiveDeals} getClosedDeals={getClosedDeals} getLostDeals={getLostDeals} />
@@ -78,14 +108,12 @@ const Deals = ({...props}) => {
               <button type="button" className="btn btn-light btn-sm" onClick={() => props.history.push('/deals/new')}>Add New Deal</button>
             </li>
             <li className="nav-item dealsNav">
-              <input className="form-control mr-sm-2 form-control-sm" id="search" type="search" placeholder="Search Deal by Name" onChange={handleFieldChange} />
+              <input className="form-control mr-sm-2 form-control-sm" id="search" type="search" placeholder="Search Deal by Name" onChange={handleSearchFieldChange} />
             </li>
             <li className="nav-item dealsNav">
-              <select className="form-control mr-sm-2 form-control-sm" id="inlineFormCustomSelect" defaultValue="">
+              <select className="form-control mr-sm-2 form-control-sm" id="inlineFormCustomSelect" defaultValue="" onChange={handleDropdownFieldChange}>
                 <option value="" disabled>Filter by Team Member</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {users.map(user => <option key={user.id} value={user.id}>{user.firstName} {user.lastName}</option>)}
               </select>
             </li>
           </ul>
