@@ -10,6 +10,10 @@ const Deals = ({...props}) => {
   const [lostDeals, setLostDeals] = useState([])
   const [modal, setModal] = useState(false)
   const [dealToDelete, setDealToDelete] = useState({id: "", dealName: ""})
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filteredActiveDeals, setFilteredActiveDeals] = useState([])
+  const [filteredClosedDeals, setFilteredClosedDeals] = useState([])
+  const [filteredLostDeals, setFilteredLostDeals] = useState([])
 
   const getActiveDeals = async () => {
     const res = await DatabaseManager.getAllActiveDeals()
@@ -36,11 +40,33 @@ const Deals = ({...props}) => {
     toggle()
   }
 
+  const handleFieldChange = (e) => {
+    setSearchTerm(e.target.value)
+  }
+
   useEffect(() => {
     getActiveDeals()
     getClosedDeals()
     getLostDeals()
   }, [])
+
+  useEffect(() => {
+    setFilteredActiveDeals(
+      activeDeals.filter(deal => {
+        return deal.dealName.toLowerCase().includes(searchTerm.toLowerCase())
+      })
+    )
+    setFilteredClosedDeals(
+      closedDeals.filter(deal => {
+        return deal.dealName.toLowerCase().includes(searchTerm.toLowerCase())
+      })
+    )
+    setFilteredLostDeals(
+      lostDeals.filter(deal => {
+        return deal.dealName.toLowerCase().includes(searchTerm.toLowerCase())
+      })
+    )
+  }, [searchTerm, activeDeals, closedDeals, lostDeals])
 
   return (
     <>
@@ -52,7 +78,7 @@ const Deals = ({...props}) => {
               <button type="button" className="btn btn-light btn-sm" onClick={() => props.history.push('/deals/new')}>Add New Deal</button>
             </li>
             <li className="nav-item dealsNav">
-              <input className="form-control mr-sm-2 form-control-sm" type="search" placeholder="Search Deal by Name" />
+              <input className="form-control mr-sm-2 form-control-sm" id="search" type="search" placeholder="Search Deal by Name" onChange={handleFieldChange} />
             </li>
             <li className="nav-item dealsNav">
               <select className="form-control mr-sm-2 form-control-sm" id="inlineFormCustomSelect" defaultValue="">
@@ -67,15 +93,15 @@ const Deals = ({...props}) => {
       </nav>
       <h4 className="activeDeals__title">Active Deals</h4>
       <div className="activeDeals__container">
-        {activeDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
+        {filteredActiveDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
       </div>
       <h4 className="closedDeals__title">Closed Deals</h4>
       <div className="closedDeals__container">
-        {closedDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
+        {filteredClosedDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
       </div>
       <h4 className="lostDeals__title">Lost Deals</h4>
       <div className="lostDeals__container">
-        {lostDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
+        {filteredLostDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
       </div>
     </>
   )
