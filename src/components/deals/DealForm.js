@@ -28,6 +28,8 @@ const DealForm = ({...props}) => {
     images: "",
     userId: ""
   })
+  const [image, setImage] = useState('')
+  const [isImageLoading, setIsImageLoading] = useState(false)
 
   const getPropertyTypes = async () => {
     const res = await DatabaseManager.getAllPropertyTypes()
@@ -88,6 +90,22 @@ const DealForm = ({...props}) => {
       DatabaseManager.postNewDeal(newDeal)
         .then(() => props.history.push('/deals'))
     }
+  }
+
+  // Handles image uploads to cloudinary
+  const uploadImage = async (e) => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'flyingboar')
+    setIsImageLoading(true)
+    const res = await fetch('https://api.cloudinary.com/v1_1/diswqnkzl/image/upload', {
+      method: "POST",
+      body: data
+    })
+    const file = await res.json()
+    setImage(file.secure_url)
+    setIsImageLoading(false)
   }
 
   useEffect(() => {
@@ -161,7 +179,8 @@ const DealForm = ({...props}) => {
             {/* Image Upload */}
             <FormGroup>
               <Label for="images" className="bold">Upload Images</Label>
-              <Input type="file" id="images" />
+              <Input type="file" id="images" onChange={uploadImage} />
+              {isImageLoading ? <h5>Loading...</h5> : <img src={image} alt="" style={{width: '300px'}} />}
             </FormGroup>
           </Form>
         </div>
