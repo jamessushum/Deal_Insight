@@ -3,7 +3,6 @@ import './Dashboard.css';
 
 const Dashboard = () => {
   const activeUser = JSON.parse(sessionStorage.getItem('credentials'))
-  console.log(activeUser)
 
   return (
     <>
