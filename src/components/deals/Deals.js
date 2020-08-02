@@ -20,19 +20,22 @@ const Deals = ({...props}) => {
   const getActiveDeals = async () => {
     const res = await DatabaseManager.getAllActiveDeals()
     const sortedByDate = res.sort((a, b) => new Date(a.closingDate) - new Date(b.closingDate))
-    return setActiveDeals(sortedByDate)
+    setActiveDeals(sortedByDate)
+    setFilteredActiveDeals(sortedByDate)
   }
 
   const getClosedDeals = async () => {
     const res = await DatabaseManager.getAllClosedDeals()
     const sortedByDate = res.sort((a, b) => new Date(a.closingDate) - new Date(b.closingDate))
-    return setClosedDeals(sortedByDate)
+    setClosedDeals(sortedByDate)
+    setFilteredClosedDeals(sortedByDate)
   }
 
   const getLostDeals = async () => {
     const res = await DatabaseManager.getAllLostDeals()
     const sortedByDate = res.sort((a, b) => new Date(a.closingDate) - new Date(b.closingDate))
-    return setLostDeals(sortedByDate)
+    setLostDeals(sortedByDate)
+    setFilteredLostDeals(sortedByDate)
   }
 
   const toggle = () => setModal(!modal)
@@ -62,6 +65,7 @@ const Deals = ({...props}) => {
     getUsers()
   }, [])
 
+  // Filters deals by search term
   useEffect(() => {
     setFilteredActiveDeals(
       activeDeals.filter(deal => {
@@ -80,23 +84,36 @@ const Deals = ({...props}) => {
     )
   }, [searchTerm, activeDeals, closedDeals, lostDeals])
 
+  // Filters deals by dropdown selection
   useEffect(() => {
-    setFilteredActiveDeals(
-      activeDeals.filter(deal => {
-        return deal.userId === parseInt(dropdownValue)
-      })
-    )
-    setFilteredClosedDeals(
-      closedDeals.filter(deal => {
-        return deal.userId === parseInt(dropdownValue)
-      })
-    )
-    setFilteredLostDeals(
-      lostDeals.filter(deal => {
-        return deal.userId === parseInt(dropdownValue)
-      })
-    )
-  }, [dropdownValue])
+    if (dropdownValue === "") {
+      return
+    } else {
+      setFilteredActiveDeals(
+        activeDeals.filter(deal => {
+          return deal.userId === parseInt(dropdownValue)
+        })
+      )
+    }
+    if (dropdownValue === "") {
+      return
+    } else {
+      setFilteredClosedDeals(
+        closedDeals.filter(deal => {
+          return deal.userId === parseInt(dropdownValue)
+        })
+      )
+    }
+    if (dropdownValue === "") {
+      return
+    } else {
+      setFilteredLostDeals(
+        lostDeals.filter(deal => {
+          return deal.userId === parseInt(dropdownValue)
+        })
+      )
+    }
+  }, [dropdownValue, activeDeals, closedDeals, lostDeals])
 
   return (
     <>
