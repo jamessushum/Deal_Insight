@@ -87,3 +87,22 @@
 #notes {
   height: 175px;
 }
+
+.addDeal__images {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em 3em 3em 3em;
+  padding: 1em;
+}
+
+.addDeal__imagesTitle {
+  margin: 0 0 0 3em;
+
+}
+
+.image {
+  margin: 0.5em;
+  width: 150px;
+}

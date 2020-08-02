@@ -7,7 +7,7 @@ const DealCard = ({deal, dealToBeDeleted, ...props}) => {
   return (
     <div>
       <Card className="dealCard">
-        <CardImg width="100%" src={require("./coming-soon.jpg")} alt="Coming Soon" />
+        {deal.images.length === 0 ? <CardImg width="100%" height="200px" src={require("./coming-soon.jpg")} alt="Coming Soon" /> : <CardImg width="100%" height="200px" src={deal.images[0]} alt={deal.images[0]} />}
         <CardBody>
           <CardTitle className="dealCard__title">{deal.dealName}</CardTitle>
           <CardText><span className="dealCard__bold">Type:</span> {deal.property.type}</CardText>

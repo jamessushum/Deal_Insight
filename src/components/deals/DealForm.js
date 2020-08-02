@@ -28,7 +28,7 @@ const DealForm = ({...props}) => {
     images: "",
     userId: ""
   })
-  const [image, setImage] = useState('')
+  const [selectedImages, setSelectedImages] = useState([])
   const [isImageLoading, setIsImageLoading] = useState(false)
 
   const getPropertyTypes = async () => {
@@ -77,9 +77,9 @@ const DealForm = ({...props}) => {
       initialPrice: deal.initialPrice,
       initialCapRate: deal.initialCapRate,
       bidPrice: deal.bidPrice,
-      closingDate: new Date(deal.closingDate).toISOString().split("T")[0],
+      closingDate: deal.closingDate,
       notes: deal.notes,
-      images: "",
+      images: selectedImages,
       userId: parseInt(deal.userId)
     }
 
@@ -92,19 +92,20 @@ const DealForm = ({...props}) => {
     }
   }
 
-  // Handles image uploads to cloudinary
-  const uploadImage = async (e) => {
+  const handleFileSelected = async (e) => {
     const files = e.target.files
+    setIsImageLoading(true)
     const data = new FormData()
     data.append('file', files[0])
     data.append('upload_preset', 'flyingboar')
-    setIsImageLoading(true)
     const res = await fetch('https://api.cloudinary.com/v1_1/diswqnkzl/image/upload', {
       method: "POST",
       body: data
     })
     const file = await res.json()
-    setImage(file.secure_url)
+    const currentStateCopy = [...selectedImages]
+    currentStateCopy.push(file.secure_url)
+    setSelectedImages(currentStateCopy)
     setIsImageLoading(false)
   }
 
@@ -179,8 +180,7 @@ const DealForm = ({...props}) => {
             {/* Image Upload */}
             <FormGroup>
               <Label for="images" className="bold">Upload Images</Label>
-              <Input type="file" id="images" onChange={uploadImage} />
-              {isImageLoading ? <h5>Loading...</h5> : <img src={image} alt="" style={{width: '300px'}} />}
+              <Input type="file" id="images" onChange={handleFileSelected} />
             </FormGroup>
           </Form>
         </div>
@@ -230,6 +230,12 @@ const DealForm = ({...props}) => {
             </div>
           </Form>
         </div>
+      </div>
+      <div className="addDeal__imagesTitle">
+        <h4>Images</h4>
+      </div>
+      <div className="addDeal__images">
+        {isImageLoading ? <h5>Loading...</h5> : selectedImages.map(url => <img src={url} key={url} alt={url} className="image" />)}
       </div>
     </>
   )
