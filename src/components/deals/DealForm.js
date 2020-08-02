@@ -92,6 +92,7 @@ const DealForm = ({...props}) => {
     }
   }
 
+  // Handles image upload using cloudinary, makes copy of current state and adds new url
   const handleFileSelected = async (e) => {
     const files = e.target.files
     setIsImageLoading(true)

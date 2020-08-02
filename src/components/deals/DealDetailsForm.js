@@ -29,6 +29,8 @@ const DealDetailsForm = ({...props}) => {
     userId: "",
     id: ""
   })
+  const [selectedImages, setSelectedImages] = useState([])
+  const [isImageLoading, setIsImageLoading] = useState(false)
 
   const getPropertyTypes = async () => {
     const res = await DatabaseManager.getAllPropertyTypes()
@@ -58,6 +60,7 @@ const DealDetailsForm = ({...props}) => {
   const getSelectedDeal = async () => {
     const res = await DatabaseManager.getSingleDeal(props.match.params.dealId)
     setDeal(res)
+    setSelectedImages(res.images)
   }
 
   const handleFieldChange = (e) => {
@@ -81,9 +84,9 @@ const DealDetailsForm = ({...props}) => {
       initialPrice: deal.initialPrice,
       initialCapRate: deal.initialCapRate,
       bidPrice: deal.bidPrice,
-      closingDate: new Date(deal.closingDate).toISOString().split("T")[0],
+      closingDate: deal.closingDate,
       notes: deal.notes,
-      images: "",
+      images: selectedImages,
       userId: parseInt(deal.userId),
       id: props.match.params.dealId
     }
@@ -95,6 +98,24 @@ const DealDetailsForm = ({...props}) => {
       DatabaseManager.updateDeal(editedDeal)
         .then(() => props.history.push('/deals'))
     }
+  }
+
+  // Handles image upload using cloudinary, makes copy of current state and adds new url
+  const handleFileSelected = async (e) => {
+    const files = e.target.files
+    setIsImageLoading(true)
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'flyingboar')
+    const res = await fetch('https://api.cloudinary.com/v1_1/diswqnkzl/image/upload', {
+      method: "POST",
+      body: data
+    })
+    const file = await res.json()
+    const currentStateCopy = [...selectedImages]
+    currentStateCopy.push(file.secure_url)
+    setSelectedImages(currentStateCopy)
+    setIsImageLoading(false)
   }
 
   useEffect(() => {
@@ -169,7 +190,7 @@ const DealDetailsForm = ({...props}) => {
             {/* Image Upload */}
             <FormGroup>
               <Label for="images" className="bold">Upload Images</Label>
-              <Input type="file" id="images" />
+              <Input type="file" id="images" onChange={handleFileSelected} />
             </FormGroup>
           </Form>
         </div>
@@ -219,6 +240,12 @@ const DealDetailsForm = ({...props}) => {
             </div>
           </Form>
         </div>
+      </div>
+      <div className="addDeal__imagesTitle">
+        <h4>Images</h4>
+      </div>
+      <div className="addDeal__images">
+        {isImageLoading ? <h5>Loading...</h5> : selectedImages.map(url => <img src={url} key={url} alt={url} className="image" />)}
       </div>
     </>
   )
