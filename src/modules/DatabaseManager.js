@@ -116,5 +116,11 @@ export default {
     })
     const result = await response.json()
     return result
+  },
+  // Method to get all of active user's active deals from database
+  async activeUsersActiveDeals(activeUserId) {
+    const response = await fetch(`${remoteURL}/deals?userId=${activeUserId}&statusId=1`)
+    const result = await response.json()
+    return result
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import UserActiveDealsChart from './UserActiveDealsChart';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -13,7 +14,8 @@ const Dashboard = () => {
         <div className="dashboard__container-left">
           <div className="dashboard__stats">
             <div className="dashboard__stats-left">
-              <h5>Deals In Pipeline</h5>
+              <h4 className="dashboard__statsActiveTitle">Active Deals in Pipeline</h4>
+              <UserActiveDealsChart activeUser={activeUser} />
             </div>
             <div className="dashboard__stats-right">
               <h5>Deals Closed</h5>
