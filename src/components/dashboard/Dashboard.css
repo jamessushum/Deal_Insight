@@ -43,9 +43,18 @@
 .dashboard__stats-left {
   border: 1px solid yellow;
   flex: 1;
+  text-align: center;
 }
 
 .dashboard__stats-right {
   border: 1px solid orange;
   flex: 1;
+}
+
+.dashboard__statsActiveTitle {
+  margin-top: 2em;
+}
+
+.dashboard__activeDealsChart {
+  margin-top: 2em;
 }
