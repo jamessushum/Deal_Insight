@@ -4,7 +4,7 @@
 
 .activeDeals__title {
   text-align: center;
-  margin-top: 1.5em;
+  padding-top: 1em;
   margin-bottom: 1em;
 }
 
@@ -36,5 +36,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-bottom: 3em;
+}
+
+.navbar-custom2 {
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+}
+
+.deals__container {
+  background-color: #F4F7F7;
 }

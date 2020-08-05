@@ -9,7 +9,7 @@ const NavBar = ({hasUser, clearUser, ...props}) => {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">
       {/* Logo */}
       <Link className="navbar-brand" to="/">
         Deal Insight

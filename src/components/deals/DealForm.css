@@ -1,13 +1,15 @@
 .addDeal__title {
-  margin-top: 1.5em;
+  /* margin-top: 1.5em; */
+  padding-top: 1.5em;
   text-align: center;
 }
 
 .addDeal__container {
-  border: 1px solid lightgrey;
-  border-radius: 10px;
+  border: 1px solid lightgray;
+  border-radius: 30px;
   display: flex;
   margin: 2em 3em 3em 3em;
+  background-color: white;
 }
 
 .addDeal__formLeft {
@@ -89,12 +91,13 @@
 }
 
 .addDeal__images {
-  border: 1px solid lightgrey;
-  border-radius: 10px;
+  border: 1px solid lightgray;
+  border-radius: 30px;
   display: flex;
   flex-wrap: wrap;
-  margin: 1em 3em 3em 3em;
+  margin: 1em 3em 0 3em;
   padding: 1em;
+  background-color: white;
 }
 
 .addDeal__imagesTitle {
@@ -105,4 +108,12 @@
 .image {
   margin: 0.5em;
   width: 150px;
+}
+
+.addDeal__mainContainer {
+  background-color: #F4F7F7;
+}
+
+.addDeal__imagesContainer {
+  background-color: #F4F7F7;
 }

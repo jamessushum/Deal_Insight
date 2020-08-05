@@ -129,6 +129,7 @@ const DealDetailsForm = ({...props}) => {
   
   return (
     <>
+      <div className="addDeal__mainContainer">
       <div className="addDeal__title">
         <h4>Deal Details</h4>
       </div>
@@ -236,7 +237,7 @@ const DealDetailsForm = ({...props}) => {
               <Input type="textarea" id="notes" onChange={handleFieldChange} value={deal.notes} />
             </FormGroup>
             <div className="addDeal__submitBtn">
-              <Button disabled={isLoading} onClick={handleSave}>Save Changes</Button>
+              <Button color="info" disabled={isLoading} onClick={handleSave}>Save Changes</Button>
             </div>
           </Form>
         </div>
@@ -246,6 +247,7 @@ const DealDetailsForm = ({...props}) => {
       </div>
       <div className="addDeal__images">
         {isImageLoading ? <h5>Loading...</h5> : selectedImages.map(url => <img src={url} key={url} alt={url} className="image" />)}
+      </div>
       </div>
     </>
   )
