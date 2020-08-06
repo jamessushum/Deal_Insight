@@ -1,0 +1,22 @@
+.home__image {
+  width: 100%;
+  opacity: 0.9;
+}
+
+.home__top {
+  position: relative
+}
+
+.home__imageText {
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: rgba(43, 53, 61, 0.8);
+  color: white;
+  padding: 2em;
+  border: 5px solid white;
+  word-wrap: normal;
+  width: 500px;
+  text-align: center;
+}
