@@ -55,10 +55,7 @@ const Register = ({setUserAuth, ...props}) => {
           setPasswordMatch(false)
           setFieldsCompleted(true)
           DatabaseManager.postNewUser(newUserObj)
-            .then(res => {
-              setUserAuth(res)
-              props.history.push('/dashboard')
-            })
+            .then(() => props.history.push('/'))
         }
       }))
   }
