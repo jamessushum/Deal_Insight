@@ -118,11 +118,11 @@ const Deals = ({...props}) => {
   return (
     <>
       <DealDeleteModal dealToDelete={dealToDelete} modal={modal} toggle={toggle} getActiveDeals={getActiveDeals} getClosedDeals={getClosedDeals} getLostDeals={getLostDeals} />
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-light navbar-custom2">
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav">
             <li className="nav-item dealsNav">
-              <button type="button" className="btn btn-light btn-sm" onClick={() => props.history.push('/deals/new')}>Add New Deal</button>
+              <button type="button" className="btn btn-success btn-sm" onClick={() => props.history.push('/deals/new')}>Add New Deal</button>
             </li>
             <li className="nav-item dealsNav">
               <input className="form-control mr-sm-2 form-control-sm" id="search" type="search" placeholder="Search Deal by Name" onChange={handleSearchFieldChange} />
@@ -136,17 +136,19 @@ const Deals = ({...props}) => {
           </ul>
         </div>
       </nav>
-      <h4 className="activeDeals__title">Active Deals</h4>
-      <div className="activeDeals__container">
-        {filteredActiveDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
-      </div>
-      <h4 className="closedDeals__title">Closed Deals</h4>
-      <div className="closedDeals__container">
-        {filteredClosedDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
-      </div>
-      <h4 className="lostDeals__title">Lost Deals</h4>
-      <div className="lostDeals__container">
-        {filteredLostDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
+      <div className="deals__container">
+        <h4 className="activeDeals__title">Active Deals</h4>
+        <div className="activeDeals__container">
+          {filteredActiveDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
+        </div>
+        <h4 className="closedDeals__title">Closed Deals</h4>
+        <div className="closedDeals__container">
+          {filteredClosedDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
+        </div>
+        <h4 className="lostDeals__title">Lost Deals</h4>
+        <div className="lostDeals__container">
+          {filteredLostDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
+        </div>
       </div>
     </>
   )
