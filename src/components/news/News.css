@@ -1,0 +1,5 @@
+.news__creContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
