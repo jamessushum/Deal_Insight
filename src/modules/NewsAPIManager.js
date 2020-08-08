@@ -9,8 +9,15 @@ export default {
     const result = await response.json()
     return result
   },
+  // Method to get the latest commercial real estate headlines from NewsAPI to be displayed on news page
   async getCREHeadlines() {
-    const response = await fetch(`${newsAPIurl}/everything?apiKey=${API.newsAPIkey}&domains=wsj.com, cnbc.com, bloomberg.com, marketwatch.com&q="commercial real estate"&sortBy=publishedAt`)
+    const response = await fetch(`${newsAPIurl}/everything?apiKey=${API.newsAPIkey}&domains=wsj.com, cnbc.com, bloomberg.com, reuters.com&q="commercial real estate"&sortBy=publishedAt`)
+    const result = await response.json()
+    return result
+  },
+  // Method to get the latest business headlines from NewsAPI to be displayed on news page
+  async getBizHeadlines() {
+    const response = await fetch(`${newsAPIurl}/everything?apiKey=${API.newsAPIkey}&sortBy=publishedAt&domains=wsj.com, cnbc.com, bloomberg.com`)
     const result = await response.json()
     return result
   }
