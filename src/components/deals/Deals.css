@@ -5,19 +5,25 @@
 .activeDeals__title {
   text-align: center;
   padding-top: 1em;
+  padding-bottom: 0.5em;
   margin-bottom: 1em;
+  border-bottom: 1px dashed lightgray;
 }
 
 .closedDeals__title {
   text-align: center;
   margin-top: 2em;
   margin-bottom: 1em;
+  border-bottom: 1px dashed lightgray;
+  padding-bottom: 0.5em;
 }
 
 .lostDeals__title {
   text-align: center;
   margin-top: 2em;
   margin-bottom: 1em;
+  border-bottom: 1px dashed lightgray;
+  padding-bottom: 0.5em;
 }
 
 .activeDeals__container {

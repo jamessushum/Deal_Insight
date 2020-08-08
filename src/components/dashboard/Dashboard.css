@@ -21,9 +21,10 @@
 .dashboard__container-right {
   /* border: 1px solid blue; */
   width: 100%;
-  height: auto;
+  height: 1000px;
   flex: 1;
   margin: 0.5em 1em 1em 0.5em;
+  overflow-y: scroll;
 }
 
 .dashboard__stats {
@@ -88,11 +89,6 @@
 
 .dashboard__headlinesNewsContainer {
   padding: 1em 1em 1em 1em;
-  /* border: 1px solid blue; */
-}
-
-.newsCard {
-  margin-bottom: 0.5em;
 }
 
 .newsCard__link {
@@ -101,7 +97,10 @@
 }
 
 .newsCard__link:hover {
-  color: black; 
-  text-decoration: none; 
-  cursor: pointer;  
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.newsCard {
+  margin-bottom: 1em;
 }

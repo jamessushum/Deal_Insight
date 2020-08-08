@@ -1,0 +1,30 @@
+.article-card {
+  display: flex;
+  width: 900px;
+  margin: 2em 1em 1em 1em;
+}
+
+.article-img {
+  width: 175px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.article-body__container {
+  margin-left: 1.5em;
+}
+
+.article-title {
+  font-weight: bold;
+  color: black;
+  font-size: 18px;
+}
+
+.article-title:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.article-meta {
+  color: #6C757D;
+}

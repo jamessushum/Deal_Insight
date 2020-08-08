@@ -137,15 +137,15 @@ const Deals = ({...props}) => {
         </div>
       </nav>
       <div className="deals__container">
-        <h4 className="activeDeals__title">Active Deals</h4>
+        <h4 className="activeDeals__title">Active Deals <span role="img" aria-label="hourglass">⏳</span></h4>
         <div className="activeDeals__container">
           {filteredActiveDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
         </div>
-        <h4 className="closedDeals__title">Closed Deals</h4>
+        <h4 className="closedDeals__title">Closed Deals <span role="img" aria-label="money">💰</span></h4>
         <div className="closedDeals__container">
           {filteredClosedDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
         </div>
-        <h4 className="lostDeals__title">Lost Deals</h4>
+        <h4 className="lostDeals__title">Lost Deals <span role="img" aria-label="skull">☠️</span></h4>
         <div className="lostDeals__container">
           {filteredLostDeals.map(deal => <DealCard key={deal.id} deal={deal} {...props} dealToBeDeleted={dealToBeDeleted} />)}
         </div>
