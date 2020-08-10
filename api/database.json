@@ -517,5 +517,28 @@
       "status": "Lost",
       "id": 3
     }
+  ],
+  "messages": [
+    {
+      "message": "What's for lunch?",
+      "date": "08/10/2020 9:38AM",
+      "fromMe": "true",
+      "userId": "1",
+      "id": 1
+    },
+    {
+      "message": "I'm thinking Martin's BBQ",
+      "date": "08/10/2020 9:53AM",
+      "fromMe": "false",
+      "userId": "3",
+      "id": 2
+    },
+    {
+      "message": "It's not even noon yet, get back to work!",
+      "date": "08/10/2020 10:04AM",
+      "fromMe": "false",
+      "userId": "2",
+      "id": 3
+    }
   ]
 }
