@@ -115,7 +115,12 @@
 
 .messages__container {
   border: 1px solid lightgray;
-  width: 800px;
+  width: 900px;
   height: 500px;
   margin-left: 0.5em;
+  padding: 1em;
+}
+
+.messages__display {
+  border: 1px solid black;
 }

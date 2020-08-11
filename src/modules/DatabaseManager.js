@@ -128,5 +128,11 @@ export default {
     const response = await fetch(`${remoteURL}/deals?userId=${activeUserId}&statusId=2`)
     const result = await response.json()
     return result
+  },
+  // Method to get all messages from database expanding user info
+  async getAllMessages() {
+    const response = await fetch(`${remoteURL}/messages?_expand=user`)
+    const result = await response.json()
+    return result
   }
 }
