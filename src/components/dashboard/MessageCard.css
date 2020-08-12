@@ -1,0 +1,19 @@
+.messageCard {
+  padding: 0.4em;
+  background-color: #FAFBF9;
+  border-radius: 5px;
+  margin-bottom: 0.8em;
+}
+
+.messageCard__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messageCard__name {
+  font-weight: bold;
+}
+
+.messageCard__message {
+  margin: 0;
+}

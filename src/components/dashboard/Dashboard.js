@@ -2,6 +2,7 @@ import React from 'react';
 import UserActiveDealsChart from './UserActiveDealsChart';
 import UserClosedDealsChart from './UserClosedDealsChart';
 import DashboardNewsHeadlines from './DashboardNewsHeadlines';
+import Messages from './Messages';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -25,11 +26,9 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="dashboard__messages">
-            <div className="dashboard__messages-display">
-
-            </div>
-            <div className="dashboard__messages-input">
-              Messages Coming Soon
+            <div className="dashboard__messagesMain">
+            <h4 className="dashboard__messagesTitle">Messages</h4>
+            <Messages activeUser={activeUser} />
             </div>
           </div>
         </div>

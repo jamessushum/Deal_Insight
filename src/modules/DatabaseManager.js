@@ -128,5 +128,23 @@ export default {
     const response = await fetch(`${remoteURL}/deals?userId=${activeUserId}&statusId=2`)
     const result = await response.json()
     return result
+  },
+  // Method to get all messages from database expanding user info
+  async getAllMessages() {
+    const response = await fetch(`${remoteURL}/messages?_expand=user`)
+    const result = await response.json()
+    return result
+  },
+  // Method to post new message to database
+  async postNewMessage(newMessage) {
+    const response = await fetch(`${remoteURL}/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newMessage)
+    })
+    const result = await response.json()
+    return result
   }
 }

@@ -517,5 +517,37 @@
       "status": "Lost",
       "id": 3
     }
+  ],
+  "messages": [
+    {
+      "message": "Who's ordering dinner",
+      "date": "2020-08-12T00:43:50.750Z",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "message": "I'm surprised you're still working...",
+      "date": "2020-08-12T00:44:39.014Z",
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "message": "I'm not a slacker unlike...",
+      "date": "2020-08-12T00:45:21.584Z",
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "message": "I think I know who you're referring to...",
+      "date": "2020-08-12T00:46:10.660Z",
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "message": "Wow...I hate ya'll",
+      "date": "2020-08-12T00:47:13.018Z",
+      "userId": 3,
+      "id": 5
+    }
   ]
 }
