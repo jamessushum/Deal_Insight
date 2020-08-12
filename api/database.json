@@ -520,22 +520,34 @@
   ],
   "messages": [
     {
-      "message": "What's for lunch?",
-      "date": "08/10/2020 9:38AM",
-      "userId": "1",
+      "message": "Who's ordering dinner",
+      "date": "2020-08-12T00:43:50.750Z",
+      "userId": 1,
       "id": 1
     },
     {
-      "message": "I'm thinking Martin's BBQ",
-      "date": "08/10/2020 9:53AM",
-      "userId": "3",
+      "message": "I'm surprised you're still working...",
+      "date": "2020-08-12T00:44:39.014Z",
+      "userId": 2,
       "id": 2
     },
     {
-      "message": "It's not even noon yet, get back to work!",
-      "date": "08/10/2020 10:04AM",
-      "userId": "2",
+      "message": "I'm not a slacker unlike...",
+      "date": "2020-08-12T00:45:21.584Z",
+      "userId": 1,
       "id": 3
+    },
+    {
+      "message": "I think I know who you're referring to...",
+      "date": "2020-08-12T00:46:10.660Z",
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "message": "Wow...I hate ya'll",
+      "date": "2020-08-12T00:47:13.018Z",
+      "userId": 3,
+      "id": 5
     }
   ]
 }

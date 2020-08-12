@@ -26,8 +26,10 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="dashboard__messages">
+            <div className="dashboard__messagesMain">
             <h4 className="dashboard__messagesTitle">Messages</h4>
-            <Messages />
+            <Messages activeUser={activeUser} />
+            </div>
           </div>
         </div>
         <div className="dashboard__container-right">

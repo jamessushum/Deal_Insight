@@ -1,9 +1,8 @@
 .messageCard {
-  /* border: 1px solid lightgray; */
   padding: 0.4em;
   background-color: #FAFBF9;
   border-radius: 5px;
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
 }
 
 .messageCard__header {
