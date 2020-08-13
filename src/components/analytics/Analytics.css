@@ -1,0 +1,40 @@
+.analytics__title {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.analytics__containerTop {
+  border: 1px solid blue;
+  height: 500px;
+  display: flex;
+}
+
+.analytics__containerBottom {
+  border: 1px solid red;
+  height: 500px;
+  display: flex;
+}
+
+.analytics__table {
+  border: 1px solid green;
+  flex: 1;
+}
+
+.analytics__chart1 {
+  border: 1px solid purple;
+  flex: 1;
+}
+
+.analytics__chart2 {
+  border: 1px solid yellow;
+  flex: 1;
+}
+
+.analytics__chart3 {
+  border: 1px solid orange;
+  flex: 1;
+}
+
+.analytics__table {
+  text-align: center;
+}
