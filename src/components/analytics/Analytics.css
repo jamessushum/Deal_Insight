@@ -34,3 +34,7 @@
   border: 1px solid orange;
   flex: 1;
 }
+
+.analytics__table {
+  text-align: center;
+}

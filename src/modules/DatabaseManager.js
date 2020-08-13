@@ -146,5 +146,11 @@ export default {
     })
     const result = await response.json()
     return result
+  },
+  // Method to get all users and their associated deals data from database
+  async getUsersDealsData() {
+    const response = await fetch(`${remoteURL}/users?_embed=deals`)
+    const result = await response.json()
+    return result
   }
 }

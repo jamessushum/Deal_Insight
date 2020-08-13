@@ -1,4 +1,5 @@
 import React from 'react';
+import TeamStatsTable from './TeamStatsTable';
 import './Analytics.css';
 
 const Analytics = () => {
@@ -9,7 +10,8 @@ const Analytics = () => {
       <div className="analytics__container">
         <div className="analytics__containerTop">
           <div className="analytics__table">
-            Table
+            <h4>Team Stats</h4>
+            <TeamStatsTable />
           </div>
           <div className="analytics__chart1">
             Chart 1
