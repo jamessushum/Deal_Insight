@@ -1,5 +1,6 @@
 import React from 'react';
 import TeamStatsTable from './TeamStatsTable';
+import AUMChart from './AUMChart';
 import './Analytics.css';
 
 const Analytics = () => {
@@ -14,7 +15,8 @@ const Analytics = () => {
             <TeamStatsTable />
           </div>
           <div className="analytics__chart1">
-            Chart 1
+            <h4 className="analytics__AUM-title">Assets Under Management</h4>
+            <AUMChart />
           </div>
         </div>
         <div className="analytics__containerBottom">

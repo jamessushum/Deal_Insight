@@ -150,7 +150,7 @@ const DealForm = ({...props}) => {
               {/* Rentable SqFt */}
               <FormGroup>
                 <Label for="squareFeet" className="bold">Rentable SqFt.</Label>
-                <Input type="text" id="squareFeet" onChange={handleFieldChange} />
+                <Input type="text" id="squareFeet" onChange={handleFieldChange} placeholder="e.g. 1000" />
               </FormGroup>
               {/* Property Class */}
               <FormGroup>
@@ -210,17 +210,17 @@ const DealForm = ({...props}) => {
               {/* Initial Price */}
               <FormGroup>
                 <Label for="initialPrice" className="bold">Initial Price</Label>
-                <Input type="text" id="initialPrice" onChange={handleFieldChange} />
+                <Input type="text" id="initialPrice" onChange={handleFieldChange} placeholder="e.g. 100000" />
               </FormGroup>
               {/* Initial Cap Rate */}
               <FormGroup>
                 <Label for="initialCapRate" className="bold">Initial Cap Rate</Label>
-                <Input type="text" id="initialCapRate" onChange={handleFieldChange} />
+                <Input type="text" id="initialCapRate" onChange={handleFieldChange} placeholder="e.g. 0.05" />
               </FormGroup>
               {/* Bid Price */}
               <FormGroup>
                 <Label for="bidPrice" className="bold">Bid Price</Label>
-                <Input type="text" id="bidPrice" onChange={handleFieldChange} />
+                <Input type="text" id="bidPrice" onChange={handleFieldChange} placeholder="e.g 100000" />
               </FormGroup>
               {/* Notes */}
               <FormGroup>
