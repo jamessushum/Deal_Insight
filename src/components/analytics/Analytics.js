@@ -1,6 +1,7 @@
 import React from 'react';
 import TeamStatsTable from './TeamStatsTable';
 import AUMChart from './AUMChart';
+import TeamActiveDealsChart from './TeamActiveDealsChart';
 import './Analytics.css';
 
 const Analytics = () => {
@@ -21,7 +22,8 @@ const Analytics = () => {
         </div>
         <div className="analytics__containerBottom">
           <div className="analytics__chart2">
-            Chart 2
+            <h4 className="analytics__teamActiveDealsTitle">Team Active Deals</h4>
+            <TeamActiveDealsChart />
           </div>
           <div className="analytics__chart3">
             Chart 3
