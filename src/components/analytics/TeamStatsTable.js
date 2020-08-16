@@ -16,7 +16,7 @@ const TeamStatsTable = () => {
   }, [])
 
   return (
-    <Table striped bordered>
+    <Table striped bordered className="teamStatsTable">
       <thead>
         <tr>
           <th>Name</th>
