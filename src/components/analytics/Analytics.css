@@ -1,48 +1,96 @@
 .analytics__title {
   text-align: center;
-  border: 1px solid black;
+  border-bottom: 1px solid lightgray;
+  padding: 0.5em;
+  margin: 0;
+}
+
+.analytics__container {
+  background-color: #F4F7F7;
 }
 
 .analytics__containerTop {
-  border: 1px solid blue;
-  height: 500px;
+  /* border: 1px solid blue; */
+  height: auto;
+  width: 100%;
   display: flex;
 }
 
 .analytics__containerBottom {
-  border: 1px solid red;
-  height: 500px;
+  /* border: 1px solid red; */
+  height: auto;
+  width: 100%;
   display: flex;
 }
 
 .analytics__table {
-  border: 1px solid green;
+  border: 0.5px solid lightgray;
+  background-color: white;
   flex: 1;
+  padding: 1em;
+  margin: 1em 0.5em 0.5em 1em;
+  border-radius: 5px;
 }
 
 .analytics__chart1 {
-  border: 1px solid purple;
+  border: 0.5px solid lightgray;
+  background-color: white;
   flex: 1;
+  padding: 1em;
+  margin: 1em 1em 0.5em 0.5em;
+  border-radius: 5px;
 }
 
 .analytics__chart2 {
-  border: 1px solid yellow;
+  border: 0.5px solid lightgray;
+  background-color: white;
   flex: 1;
+  padding: 1em;
+  margin: 0.5em 0.5em 1em 1em;
+  border-radius: 5px;
 }
 
 .analytics__chart3 {
-  border: 1px solid orange;
+  border: 0.5px solid lightgray;
+  background-color: white;
   flex: 1;
+  padding: 1em;
+  margin: 0.5em 1em 1em 0.5em;
+  border-radius: 5px;
 }
 
-.analytics__table {
+.analytics__teamStatsTitle {
   text-align: center;
+  margin-top: 0.5em;
+}
+
+.teamStatsTable {
+  margin-top: 1.5em;
 }
 
 .analytics__AUM-title {
   text-align: center;
+  margin-top: 0.5em;
+}
+
+.analytics__AUMChart {
+  margin-top: 1.5em;
 }
 
 .analytics__teamActiveDealsTitle {
   text-align: center;
+  margin-top: 0.5em;
+}
+
+.teamActiveDealsChart {
+  margin-top: 1.5em;
+}
+
+.analytics__teamClosedDealsTitle {
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+.teamClosedDealsChart {
+  margin-top: 1.5em;
 }

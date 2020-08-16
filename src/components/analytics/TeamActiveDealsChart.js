@@ -48,7 +48,7 @@ const TeamActiveDealsChart = () => {
   }, [])
 
   return (
-    <div>
+    <div className="teamActiveDealsChart">
       <HorizontalBar data={chartData} options={{
         scales: {
           xAxes: [
