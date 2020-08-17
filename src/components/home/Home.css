@@ -1,10 +1,14 @@
 .home__image {
   width: 100%;
-  opacity: 0.9;
+  opacity: 0.8;
+  min-height: 100%;
 }
 
 .home__top {
-  position: relative
+  position: relative;
+  height: 85vh;
+  overflow: hidden;
+  min-height: 85.9vh;
 }
 
 .home__imageText {
@@ -19,4 +23,17 @@
   word-wrap: normal;
   width: 500px;
   text-align: center;
+}
+
+.main__footer {
+  text-align: center;
+  color: white;
+  background-color: #2B353D;
+  position: relative;
+  padding: 0.8em;
+}
+
+.home__container {
+  display: flex;
+  flex-direction: column;
 }

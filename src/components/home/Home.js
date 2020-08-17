@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../footer/Footer';
 import './Home.css';
 
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
         </div>
       </div>
       <div className="home__bottom">
-
+        <Footer />
       </div>
     </div>
   )
