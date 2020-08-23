@@ -57,8 +57,53 @@ export default API;
 
 The dashboard displays:
 
-1. Chart with number of user's pending deals by current stage
-2. Chart with number of user's closed deals by month
+1. User's number of pending deals by current stage (chart is dynamic)
+2. User's number of closed deals by month (chart is dynamic)
 3. Latest news headlines in business (5)
 4. Messages component 
+
+### Messages
+
+The messages component behaves like a forum where the user is able to view messages from everyone and send messages to everyone.
+
+### Deals Page 
+
+All of the team's deals are displayed and categorized by 'Active', 'Closed', and 'Lost' statuses. In addition, deals are sorted by earliest closing date.
+
+- Search
+  - In the search bar the user is able to search for a specific deal by name
+- Filter 
+  - In the dropdown the user is able to select a team member's name to filter and see all of their deals
+- Details/Edit 
+  - When the details button is clicked on a specific deal, the user is taken to the details view displaying all corresponding data 
+  - Additionally, the user is also able to make any changes to the specified deal
+- Delete
+  - When the delete button is clicked on a specific deal, a modal message will appear prompting user to confirm the delete action
+- Add
+  - User is able to add a new deal by clicking the 'Add New Deal' button
+  - The 'Deal Name', 'Property Type', 'Property Class', 'Stage', 'Deal Status' and 'Assign Team Member' form fields are required before submitting
+  - If no image has been uploaded, a stock 'Coming Soon' image will be displayed on the deal card
+
+### News Page
+
+- User can select either the 'Commercial Real Estate' or 'Business' tab to view all the latest corresponding news
+- Clicking on the article's title opens the article source on a separate tab for further reading
+- The page fetches the latest news from the News API upon refresh
+
+### Analytics Page
+
+The table and charts are all dynamic according to changes in the deals page. On this page the user is able to find useful information regarding the team's number of active deal by stage, closed deals by month and assets under management and classification.
+
+## Technologies Used
+
+- React
+- JavaScript
+- HTML
+- CSS
+- Reactstrap/Bootstrap
+  - Modal, Buttons, Cards, NavBar, Input Fields, Tabs
+- Chart.js
+- Moment.js
+- Cloudinary
+- JSON-Server
 
