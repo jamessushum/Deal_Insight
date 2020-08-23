@@ -520,21 +520,21 @@
   ],
   "messages": [
     {
-      "message": "What's for lunch?",
-      "date": "2020-08-18T13:00:19.492Z",
+      "message": "How are we doing with Hilton Garden Inn?",
+      "date": "2020-08-22T19:42:12.413Z",
       "userId": 1,
       "id": 1
     },
     {
-      "message": "Down for Martin's BBQ",
-      "date": "2020-08-18T13:02:34.136Z",
-      "userId": 3,
+      "message": "Wrapped up due diligence yesterday, we're in-line to close on the 26th.",
+      "date": "2020-08-22T19:45:37.221Z",
+      "userId": 2,
       "id": 2
     },
     {
-      "message": "It's not even noon yet, get back to work!",
-      "date": "2020-08-18T13:04:15.140Z",
-      "userId": 2,
+      "message": "👍👍👍",
+      "date": "2020-08-22T19:47:06.289Z",
+      "userId": 3,
       "id": 3
     }
   ]
