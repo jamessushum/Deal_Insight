@@ -68,6 +68,11 @@ const Login = ({setUserAuth, ...props}) => {
           </div>
         </Form>
       </div>
+      <div className="login__account">
+        *For demonstration purposes only. Please use the following user credentials for the best user experience! <br/>
+        Username: jowen <br/>
+        Password: 7Ebw7wT4
+      </div>
     </div>
   )
 }
