@@ -18,3 +18,7 @@
   padding: 3em;
 }
 
+.register__securityWarning {
+  font-weight: 600;
+}
+

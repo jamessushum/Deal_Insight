@@ -105,6 +105,9 @@ const Register = ({setUserAuth, ...props}) => {
           </div>
         </Form>
       </div>
+      <div className="register__securityWarning">
+        *For demonstration purposes only. Please do not use your personal information when registering.
+      </div>
     </div>
   )
 }
