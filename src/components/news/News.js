@@ -16,12 +16,12 @@ const News = () => {
 
   const getCRENews = async () => {
     const res = await NewsAPIManager.getCREHeadlines()
-    setCRENews(res.articles)
+    setCRENews(res.news)
   }
 
   const getBizNews = async () => {
     const res = await NewsAPIManager.getBizHeadlines()
-    setBizNews(res.articles)
+    setBizNews(res.news)
   }
 
   useEffect(() => {
@@ -55,14 +55,14 @@ const News = () => {
           <TabPane tabId="1">
             <Row>
               <Col sm="12">
-                {creNews.map(article => <NewsCardHorizontal key={article.title} article={article} />)}
+                {creNews.map(article => <NewsCardHorizontal key={article.id} article={article} />)}
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="2">
           <Row>
               <Col sm="12">
-                {bizNews.map(article => <NewsCardHorizontal key={article.title} article={article} />)}
+                {bizNews.map(article => <NewsCardHorizontal key={article.id} article={article} />)}
               </Col>
             </Row>
           </TabPane>

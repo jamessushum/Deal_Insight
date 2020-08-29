@@ -7,7 +7,7 @@ const DashboardNewsHeadlines = () => {
 
   const getNews = async () => {
     const res = await NewsAPIManager.getDashboardHeadlines()
-    setNews(res.articles)
+    setNews(res.news)
   }
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const DashboardNewsHeadlines = () => {
 
   return (
     <div className="dashboard__headlinesNewsContainer">
-      {news.map(article => <NewsCard key={article.title} article={article} />)}
+      {news.map(article => <NewsCard key={article.id} article={article} />)}
     </div>
   )
 }

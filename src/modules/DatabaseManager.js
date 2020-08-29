@@ -1,4 +1,4 @@
-const remoteURL = "http://localhost:8088"
+const remoteURL = "https://deal-insight-api.herokuapp.com"
 
 export default {
   // Method to post new user to database

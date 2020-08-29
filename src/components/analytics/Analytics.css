@@ -10,14 +10,12 @@
 }
 
 .analytics__containerTop {
-  /* border: 1px solid blue; */
   height: auto;
   width: 100%;
   display: flex;
 }
 
 .analytics__containerBottom {
-  /* border: 1px solid red; */
   height: auto;
   width: 100%;
   display: flex;
