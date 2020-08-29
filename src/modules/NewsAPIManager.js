@@ -1,22 +1,22 @@
-const newsAPIurl = "https://newsapi.org/v2"
+const newsAPIurl = "https://api.currentsapi.services/v1"
 const newsAPIKey = process.env.REACT_APP_NEWS_API_KEY
 
 export default {
-  // Method to get the 5 latest business headlines from NewsAPI to be displayed on dashboard
+  // Method to get the latest general headlines from News API to be displayed on dashboard
   async getDashboardHeadlines() {
-    const response = await fetch(`${newsAPIurl}/everything?apiKey=${newsAPIKey}&domains=wsj.com, cnbc.com&sortBy=publishedAt&pageSize=5`)
+    const response = await fetch(`${newsAPIurl}/search?apiKey=${newsAPIKey}&domain=cnbc.com,wsj.com&country=us`)
     const result = await response.json()
     return result
   },
-  // Method to get the latest commercial real estate headlines from NewsAPI to be displayed on news page
+  // Method to get the latest commercial real estate headlines from News API to be displayed on news page
   async getCREHeadlines() {
-    const response = await fetch(`${newsAPIurl}/everything?apiKey=${newsAPIKey}&domains=wsj.com, cnbc.com, bloomberg.com, reuters.com&q="commercial real estate"&sortBy=publishedAt`)
+    const response = await fetch(`${newsAPIurl}/search?apiKey=${newsAPIKey}&domain=cnbc.com,wsj.com,bloomberg.com&country=us&keywords=commercial real estate`)
     const result = await response.json()
     return result
   },
-  // Method to get the latest business headlines from NewsAPI to be displayed on news page
+  // Method to get the latest business headlines from News API to be displayed on news page
   async getBizHeadlines() {
-    const response = await fetch(`${newsAPIurl}/everything?apiKey=${newsAPIKey}&sortBy=publishedAt&domains=wsj.com, cnbc.com, bloomberg.com`)
+    const response = await fetch(`${newsAPIurl}/search?apiKey=${newsAPIKey}&domain=cnbc.com,wsj.com&country=us&category=business`)
     const result = await response.json()
     return result
   }
