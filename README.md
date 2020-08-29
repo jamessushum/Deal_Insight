@@ -2,9 +2,15 @@
 
 > Manage your deal pipeline. Stay up-to-date with the market.
 
-Long gone are the days of unengaging and cumbersome to use deal management platforms. Moreover, with today's rapid flow of information, it is now more important than ever to keep abreast with industry news as market conditions can greatly affect asset values.
+Long gone are the days of unengaging and cumbersome to use deal management platforms. Moreover, with today's rapid flow of information, it is now more important than ever to keep abreast with industry news as asset values can be greatly affected by market conditions.
 
-Deal Insight is a deal management platform with an integrated real time business and real estate news feed designed and developed for commercial real estate investors and acquisition teams.
+Deal Insight is a deal management platform with integrated business and real estate news feeds designed and developed for commercial real estate investors and acquisition teams.
+
+Check out the app live at https://deal-insight.herokuapp.com/.
+
+(Please note that desktop viewing is recommended as the app is not yet fully optimized for mobile.)
+
+Feel free to contact me for a live demo!
 
 ![Deal Insight Intro](./README_media/deal_insight_intro.gif)
 
@@ -18,22 +24,18 @@ Deal Insight is a deal management platform with an integrated real time business
 
 Open and view the app in your local machine using the following steps:
 
-*Note:* *an API Key from NewsAPI.org is required to access the news component and fully utilize the app.*
+*Note:* *an API Key from https://currentsapi.services/en is needed for the news functionality to work and fully utilize the app.*
 
 1. Copy repo's clone with SSH or HTTPS url
-2. Use ```git clone 'copied url from above'``` in your terminal console
+2. Use ```git clone URL GOES HERE``` in your terminal console
 3. Inside the repo's root directory, run ```npm install``` to install required dependencies
-4. Inside the repo's root directory, create a ```Settings.js``` file to store your NewsAPI key. Then store and export API key as followed:
-```javascript
-const API = {
-  newsAPIkey: "enter key provided"
-}
-
-export default API;
+4. Inside the repo's root directory, create a ```.env``` file and store your CurrentsAPI key as followed:
 ```
-5. Change to ```api``` directory and run ```json-server -p 8088 -w database.json``` to initiate REST API
+REACT_APP_NEWS_API_KEY = YOUR API KEY GOES HERE
+```
+5. Optional: Navigate to ```DatabaseManager.js``` file and modify remoteURL to ```const remoteURL = "http://localhost:8088"``` then change to ```api``` directory and run ```json-server -p 8088 -w database.json``` to initiate REST API
 6. Change to repo's root directory and run ```npm start``` to launch app in local browser
-7. In the app, feel free to register a new account or to enjoy the full experience use one of the fictitious user credentials found in ```database.json```.
+7. Feel free to use any of the fictitious user credentials in ```database.json``` for the best user experience!
 
 ## Usage
 
@@ -57,14 +59,17 @@ export default API;
 
 The dashboard displays:
 
-1. User's number of pending deals by current stage (chart is dynamic)
-2. User's number of closed deals by month (chart is dynamic)
-3. Latest news headlines in business (5)
-4. Messages component 
+1. User's number of pending deals by current stage (chart is dynamic and changes depending on data in deals page)
+2. User's number of closed deals by month (chart is dynamic and changes depending on data in deals page)
+3. Latest news headlines from CNBC and The Wallstreet Journal
+4. Messages component
 
 ### Messages
 
-The messages component behaves like a forum where the user is able to view messages from everyone and send messages to everyone.
+The messages component allows the user to see and send messages from/to everyone.
+
+1. The view defaults to the latest message (at bottom) when the messages list overflows
+2. To send a message, enter desired message in input field and click the Send button
 
 ### Deals Page 
 
@@ -106,4 +111,5 @@ The table and charts are all dynamic according to changes in the deals page. On 
 - Moment.js
 - Cloudinary
 - JSON-Server
+- Currents API
 
