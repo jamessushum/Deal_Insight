@@ -20,6 +20,8 @@ const Register = ({setUserAuth, ...props}) => {
 
   const [fieldsCompleted, setFieldsCompleted] = useState(true)
 
+  const isDisabled = true
+
   const handleFieldChange = (e) => {
     const stateToChange = {...user}
     stateToChange[e.target.id] = e.target.value
@@ -72,32 +74,32 @@ const Register = ({setUserAuth, ...props}) => {
           </div>
           <FormGroup>
             <Label for="firstName">First Name</Label>
-            <Input type="text" id="firstName" onChange={handleFieldChange} />
+            <Input type="text" id="firstName" onChange={handleFieldChange} disabled={isDisabled} />
             <FormFeedback>Please enter all fields</FormFeedback>
           </FormGroup>
           <FormGroup>
             <Label for="lastName">Last Name</Label>
-            <Input type="text" id="lastName" onChange={handleFieldChange} />
+            <Input type="text" id="lastName" onChange={handleFieldChange} disabled={isDisabled} />
             <FormFeedback>Please enter last name</FormFeedback>
           </FormGroup>
           <FormGroup>
             <Label for="username">Username</Label>
-            <Input type="text" id="username" onChange={handleFieldChange} invalid={usernameTaken} />
+            <Input type="text" id="username" onChange={handleFieldChange} invalid={usernameTaken} disabled={isDisabled} />
             <FormFeedback>Username already taken</FormFeedback>
           </FormGroup>
           <FormGroup>
             <Label for="email">Email</Label>
-            <Input type="email" id="email" onChange={handleFieldChange} invalid={emailExists} />
+            <Input type="email" id="email" onChange={handleFieldChange} invalid={emailExists} disabled={isDisabled} />
             <FormFeedback>Email already in use</FormFeedback>
           </FormGroup>
           <FormGroup>
             <Label for="password">Password</Label>
-            <Input type="password" id="password" onChange={handleFieldChange} />
+            <Input type="password" id="password" onChange={handleFieldChange} disabled={isDisabled} />
             <FormFeedback>Please enter a password</FormFeedback>
           </FormGroup>
           <FormGroup>
             <Label for="confirm_password">Confirm Password</Label>
-            <Input type="password" id="confirm_password" invalid={passwordMatch} />
+            <Input type="password" id="confirm_password" invalid={passwordMatch} disabled={isDisabled} />
             <FormFeedback>Passwords don't match</FormFeedback>
           </FormGroup>
           <div className="col text-center">
@@ -106,7 +108,7 @@ const Register = ({setUserAuth, ...props}) => {
         </Form>
       </div>
       <div className="register__securityWarning">
-        *For demonstration purposes only. Please do not use your personal information when registering.
+        *Input fields have been disabled for demonstration purposes.
       </div>
     </div>
   )
